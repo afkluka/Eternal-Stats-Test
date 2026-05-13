@@ -234,8 +234,30 @@ function openRune(name, number) {
       statsGrid.innerHTML += `
         <div class="custom-stat-card${compactClass}" style="background:${card.color};">
           <h3>${card.name}</h3>
-          <h4>[${card.chance}]</h4>
-          <h4>${card.owned}</h4>
+          <div class="chance-wrapper">
+
+  <h4>[${card.chance}]</h4>
+
+  ${number !== 1 ? `
+    <div class="luck-calc">
+
+      <input
+        type="text"
+        placeholder="Your Luck"
+        class="luck-input"
+        oninput="updateChance(this, '${card.chance}')"
+      >
+
+      <div class="luck-result">
+        1 in ???
+      </div>
+
+    </div>
+  ` : ""}
+
+</div>
+
+<h4>${card.owned}</h4>
           <div class="card-line"></div>
           ${statsHTML}
         </div>
@@ -279,6 +301,120 @@ function getStatClass(stat) {
 
 function closeRune() {
   document.getElementById("popup").style.display = "none";
+}
+  const suffixes = {
+  k: 1e3,
+  M: 1e6,
+  B: 1e9,
+  T: 1e12,
+  Qd: 1e15,
+  Qn: 1e18,
+  Sx: 1e21,
+  Sp: 1e24,
+  Oc: 1e27,
+  No: 1e30,
+  De: 1e33,
+  Ude: 1e36,
+  DDe: 1e39,
+  TDe: 1e42,
+  QdDe: 1e45,
+  QnDe: 1e48,
+  SxDe: 1e51,
+  SpDe: 1e54,
+  OcDe: 1e57,
+  NoDe: 1e60,
+  Vt: 1e63,
+  UVt: 1e66,
+  DVt: 1e69,
+  TVt: 1e72,
+  QdVt: 1e75,
+  QnVt: 1e78,
+  SxVt: 1e81,
+  SpVt: 1e84,
+  OcVt: 1e87,
+  NoVt: 1e90,
+  Tg: 1e93,
+  Utg: 1e96
+};
+
+function parseNumber(input) {
+
+  input = input.trim();
+
+  const match =
+    input.match(/^([\d.]+)\s*([a-zA-Z]+)?$/);
+
+  if (!match) return 0;
+
+  const number = parseFloat(match[1]);
+  const suffix = match[2];
+
+  if (!suffix) return number;
+
+  return number * (suffixes[suffix] || 1);
+}
+
+function parseChance(chanceText) {
+
+  return parseNumber(
+
+    chanceText
+      .replace("1 in ", "")
+      .replace("[", "")
+      .replace("]", "")
+
+  );
+}
+
+function formatChance(num) {
+
+  if (num <= 1) return "1";
+
+  const entries =
+    Object.entries(suffixes).reverse();
+
+  for (const [suffix, value] of entries) {
+
+    if (num >= value) {
+
+      return (
+        (num / value)
+          .toFixed(2)
+          .replace(/\.00$/, "") + suffix
+      );
+
+    }
+  }
+
+  return Math.floor(num).toString();
+}
+
+function updateChance(input, baseChanceText) {
+
+  const luck = parseNumber(input.value);
+
+  const result =
+    input.parentElement.querySelector(".luck-result");
+
+  if (!luck || luck <= 0) {
+
+    result.textContent = "1 in ???";
+    return;
+
+  }
+
+  const baseChance =
+    parseChance(baseChanceText);
+
+  let finalChance =
+    baseChance / luck;
+
+  if (finalChance < 1) {
+    finalChance = 1;
+  }
+
+  result.textContent =
+    "1 in " + formatChance(finalChance);
 }
 </script>
 
