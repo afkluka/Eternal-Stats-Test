@@ -480,7 +480,6 @@ footer {
     flex-direction:column;
     align-items:center;
     gap:8px;
-    margin-top:4px;
 }
 
 .luck-calc{
@@ -488,20 +487,21 @@ footer {
     flex-direction:column;
     align-items:center;
     gap:6px;
-    width:100%;
 }
 
 .luck-input{
     width:120px;
+
+    padding:8px 10px;
+
     border:none;
     outline:none;
-    border-radius:12px;
+
+    border-radius:14px;
 
     background:rgba(0,0,0,0.18);
 
-    padding:8px 12px;
-
-    text-align:center;
+    border:2px solid rgba(255,255,255,0.15);
 
     color:white;
 
@@ -509,7 +509,7 @@ footer {
     font-size:15px;
     font-weight:700;
 
-    border:2px solid rgba(255,255,255,0.15);
+    text-align:center;
 
     transition:0.15s;
 }
@@ -525,7 +525,7 @@ footer {
 
 .luck-result{
     font-family:'Fredoka',sans-serif;
-    font-size:16px;
+    font-size:15px;
     font-weight:800;
 
     color:white;
