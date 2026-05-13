@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Eternal Stats Info</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>Eternal Stats</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="runes.html">Runes</a>
+    <a href="stats-info.html">Stats Info</a>
+  </nav>
+</header>
+
+<main class="stats-info-page">
+  <section class="stats-info-box">
+    <h2>Stats Info</h2>
+    <p class="stats-info-subtitle">Search and read Eternal Stats information.</p>
+
+    <input 
+      type="text" 
+      id="infoSearch" 
+      class="info-search" 
+      placeholder="Search stats info..."
+      onkeyup="searchInfo()"
+    >
+
+   <div id="infoContent" class="info-content">
+
+  <div class="info-section">
+    <h3>Points Rune</h3>
+    <p>Pulse Token - Balls maxed at > 1k Runes, Exp and Points maxed at > 1.5k Runes</p>
+    <p>Mind Shard - Balls maxed at > 1k Runes, Exp and Points maxed at > 1.4k Runes</p>
+    <p>Echo Point - Balls maxed at > 1k Runes, Exp maxed at > 3k Runes, Points maxed at > 1.5k Runes</p>
+    <p>Apex Counter - Balls maxed at > 500 Runes, Exp and Points maxed at > 900 Runes, Nebulosa, Rune Luck and Rune Bulk maxed at > 10k Runes</p>
+    <p>Eternity Prism - Rune Bulk maxed at > 180k Runes, Rune Speed maxed at > 560k Runes, Points maxed at > 2M Runes, Exp maxed at > 108M Runes</p>
+  </div>
+
+  <div class="info-section">
+    <h3>Balls Rune</h3>
+    <p>Orbit Core - Balls maxed at > 1k Runes, Exp and Points maxed at > 3k Runes</p>
+    <p>Pulse Orb - Balls maxed at > 1k Runes, Exp and Points maxed at > 2.4k Runes</p>
+    <p>Nova Marble - Balls maxed at > 1k Runes, Exp and Points maxed at > 2.3k Runes</p>
+    <p>Crown Sphere - Fire maxed at > 200 Runes, Balls maxed at > 1k Runes, Exp and Points maxed at > 2.2k Runes</p>
+    <p>Infinity Orb - Fire maxed at > 400 Runes, Balls maxed at >600 Runes, XP and Points max at 1.4k Runes, Nebulosa, Rune Bulk, and Rune Luck max at > 20k</p>
+    <p>Omega Sphere - Nebulosa, Rune Luck and Rune Bulk maxed at > 38k Runes, Rarity Bulk and Luck maxed at > 47k Runes, Black Hole and Cosmic Dust maxed at > 60k Runes, Rarity Speed maxed at > 63k Runes</p>
+  </div>
+
+  <div class="info-section">
+    <h3>Fire Rune</h3>
+    <p>Ember Shard - Balls and Fire maxed at > 1k Runes, Exp and Points maxed at > 4k Runes</p>
+    <p>Ashen Core - Balls maxed at > 1k Runes, Fire maxed at > 1.5k Runes, Exp and Points maxed at > 3k Runes</p>
+    <p>Blaze Sigil - Balls maxed at > 1k Runes, Fire maxed at > 1.4k Runes, Exp and Points maxed at > 2.4k Runes</p>
+    <p>Cinder Orb - Balls maxed at > 1k Runes, Fire maxed at > 1.3k Runes, Exp and Points maxed at > 2.3k Runes</p>
+    <p>Inferno Crest - Balls maxed at > 1k Runes, Fire maxed at > 1.2k Runes, Exp and Points maxed at > 2.2k Runes</p>
+    <p>Phoenix Heart - Clicks maxed at > 1k Runes, Balls maxed at > 12k Runes, Fire maxed at > 14k Runes, Exp and Points maxed at > 28k Runes, Rune Bulk and Rune Luck maxed at > 40k Runes, Nebulosa maxed at > 400k Runes</p>
+    <p>Everflame Core - Nebulosa maxed at > 38k Runes, Rarity Bulk and Rarity Luck maxed at > 47k Runes, Rune Luck and Rune Bulk maxed at > 50k Runes, Black Hole and Cosmic Dust maxed at > 60k Rwunes, Rarity Speed maxed at > 63k Runes</p>
+  </div>
+
+  <div class="info-section">
+    <h3>Clicks Rune</h3>
+    <p>Tap Spark - Clicks maxed at 1k Runes, Exp and Points maxed at > 4k Runes</p>
+    <p>Rhythm Chip - Clicks and Click Exp maxed at > 1k Runes, Exp and Points maxed at > 2.5k Runes</p>
+    <p>Combo Sigil - Clicks maxed at > 600 Runes, Exp and Points maxed at > 700 Runes, Click Exp maxed at > 2k Runes</p>
+    <p>Tempo Core - Clicks maxed at > 600 Runes, Exp and Points maxed at > 1.3k Runes, Click Exp maxed at > 3k Runes</p>
+    <p>Echo Trigger - Clicks maxed at > 500 Runes, Exp and Points maxed at > 1k Runes, Click Exp maxed at > 4k Runes</p>
+    <p>Infinite Switch - Rarity Luck maxed at > 10k Runes, Clicks and Click Exp maxed at > 12k Runes, Nebulosa maxed at > 15k Runes, Exp and Points maxed at > 22k Runes, Rune Bulk and Rune Luck maxed at > 40k Runes</p>
+    <p>Chrono Switch - Click Exp maxed at > 18k Runes, Rarity Luck maxed at > 30k Runes, Clicks maxed at > 34k Runes, Exp and Points maxed at > 35k Runes, Stars maxed at > 70k Runes, Nebulosa maxed at > 80k Runes, Rune Luck and Rune Bulk maxed at 100k Runes</p>
+  </div>
+
+  <div class="info-section">
+    <h3>Water Rune</h3>
+    <p>Droplet Seed - Water maxed at > 1k Runes, Exp and Points maxed at > 4k Runes</p>
+    <p>Tidal Core - Water maxed at > 1k Runes, Exp and Points maxed at > 2.5k Runes</p>
+    <p>Mist Sigil - Water maxed at > 1k Runes, Exp and Points maxed at > 2k Runes</p>
+    <p>Current Orb - Water maxed at > 800 Runes, Exp and Points maxed at > 1.8k Runes</p>
+    <p>Abyss Crest - Water maxed at > 500 Runes, Exp and Points maxed at > 900 Runes</p>
+    <p>Leviathan Heart - Rarity Bulk and Luck maxed at > 10k Runes, Rune Luck and Bulk maxed at > 63k Runes, Water, Nebulosa, and Cosmic Dust maxed at > 200k Runes, Points maxed at > 550k Runes, Exp maxed at > 600k Runes</p>
+    <p>Timeless Crest - Nebulosa maxed at > 38k Runes, Rarity Bulk and Rarity Luck maxed at > 47k Runes, Black Hole and Cosmic Dust maxed at > 60k Runes, Rarity Speed maxed at > 63k Runes, Rune Luck and Rune Bulk maxed at > 225k Runes</p>
+  </div>
+
+  <div class="info-section">
+    <h3>Star Rune</h3>
+    <p>Infinite Constellation - Rarity Bulk and Rarity Luck maxed at > 10k Runes, Stars maxed at > 45k Runes, Rune Bulk maxed at > 97k Runes, Rune Luck maxed at > 104k Runes, Nebulosa maxed at > 400k Runes, Cosmic Dust maxed at > 1.9M Runes, Exp maxed at > 9M Runes</p>
+    <p>Epoch Halo - Nebulosa maxed at > 38k Runes, Rarity Bulk and Rarity Luck maxed at > 47k Runes, Rune Bulk and Rune Luck maxed at > 50k Runes, Black Hole and Cosmic Dust maxed at > 60k Runes, Rarity Speed maxed at > 63k Runes</p>
+  </div>
+
+  <div class="info-section">
+    <h3>Cosmic Rune</h3>
+    <p>Singularity Ash - Exp, Points, and Stars maxed at > 100 Runes, Cosmic Dust maxed at > 1k Runes</p>
+    <p>Event Horizon - Exp, Points, and Stars maxed at > 60 Runes, Cosmic Dust maxed at > 600 Runes</p>
+    <p>Endless Collapse - Rarity Bulk, Rarity Luck and Rarity Speed maxed at > 100k Runes, Rune Bulk and Rune Luck maxed at > 120k Runes, Stars maxed at > 225k Runes, Cosmic Dust maxed at > 634k Runes, Exp maxed at > 6.4M Runes</p>
+    <p>Paradox Veil - Nebulosa maxed at > 38k Runes, Rarity Bulk and Rarity Luck maxed at > 47k Runes, Cosmic Dust and Black Hole maxed at > 60k Runes, Rarity Speed maxed at > 64k Runes, Rune Luck and Rune Bulk maxed at > 75k Runes</p>
+  </div>
+
+  <div class="info-section">
+    <h3>Nebulosa Rune</h3>
+    <p>Infinite Bloom - Black Hole maxed at > 10k Runes, Rune Bulk and Rune Luck maxed at > 500k Runes, Rarity Bulk and Rarity Luck maxed at > 900k Runes, Nebulosa maxed at > 1.29M Runes, Cosmic Dust maxed at > 1.9M Runes, Rarity Speed maxed at > 3M Runes, Exp maxed at > 9M Runes</p>
+  </div>
+
+  <div class="info-section">
+    <h3>Black Hole Rune</h3>
+    <p>Void Seed - Black Hole and Nebulosa maxed at > 1k Runes, Rarity Luck maxed at > 2k Runes</p>
+    <p>Gravity Core - Black Hole maxed at > 500 Runes, Rarity Luck maxed at > 1.5k Runes, Nebulosa maxed at > 3k Runes</p>
+    <p>Singularity Pulse - Rarity Luck and Rarity Bulk maxed at > 2k Runes, Black Hole and Nebulosa maxed at > 4k Runes</p>
+    <p>Event Crest - Rarity Bulk maxed at > 2k Runes, Nebulosa maxed at > 16.7k Runes, Rarity Luck maxed at > 20k Runes, Black Hole maxed at > 90k Runes</p>
+    <p>Abyssal Maw - Rarity Speed maxed at > 20k Runes, Rarity Bulk and Rarity Luck maxed at > 40k Runes, Black Hole and Nebulosa maxed at > 60k Runes, Rune Luck maxed at > 200k Runes</p>
+    <p>Infinite Rift - Rarity Speed maxed at > 40k Runes, Nebulosa maxed at > 70k Runes, Rarity Bulk and Rarity Luck maxed at > 90k Runes, Black Hole maxed at > 95k Runes, Cosmic Dust maxed at > 140k Runes, Rune Bulk and Rune Luck maxed at > 150k Runes</p>
+    <p>Oblivion Crown - Rune Bulk maxed at > 600k Runes, Rarity Bulk maxed at > 2.58M Runes, Rune Luck maxed at > 3.2M Runes, Rune Speed maxed at > 3.43M Runes, Black Hole maxed at > 4.03M Runes, Rarity Luck maxed at > 9.34M Runes, Rarity Speed maxed at > 90M Runes, Cosmic Dust maxed at > 40B Runes</p>
+  </div>
+
+</div>
+  </section>
+</main>
+
+<script>
+const sections = document.querySelectorAll(".info-section");
+
+sections.forEach(section => {
+  section.dataset.original = section.innerHTML;
+});
+
+function searchInfo() {
+  const input = document.getElementById("infoSearch").value.trim();
+  const search = input.toLowerCase();
+
+  sections.forEach(section => {
+    section.innerHTML = section.dataset.original;
+
+    if (search === "") {
+      section.style.display = "block";
+      return;
+    }
+
+    const text = section.innerText.toLowerCase();
+
+    if (text.includes(search)) {
+      section.style.display = "block";
+
+      const regex = new RegExp(`(${escapeRegExp(input)})`, "gi");
+      section.innerHTML = section.innerHTML.replace(regex, `<mark>$1</mark>`);
+    } else {
+      section.style.display = "none";
+    }
+  });
+}
+
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+</script>
+
+<footer>
+  <p>Made by Despecfy</p>
+</footer>
+
+</body>
+</html>
