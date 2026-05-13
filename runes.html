@@ -309,6 +309,13 @@ function closeRune() {
   "Tg", "Utg"
 ];
 
+const suffixList = [
+  "k", "M", "B", "T", "Qd", "Qn", "Sx", "Sp", "Oc", "No",
+  "De", "Ude", "DDe", "TDe", "QdDe", "QnDe", "SxDe", "SpDe", "OcDe", "NoDe",
+  "Vt", "UVt", "DVt", "TVt", "QdVt", "QnVt", "SxVt", "SpVt", "OcVt", "NoVt",
+  "Tg", "Utg"
+];
+
 const suffixes = {};
 
 suffixList.forEach((suffix, index) => {
@@ -316,9 +323,12 @@ suffixList.forEach((suffix, index) => {
 });
 
 function parseNumber(input) {
+
   input = input.trim();
 
-  const match = input.match(/^([\d.]+)\s*([a-zA-Z]+)?$/);
+  const match =
+    input.match(/^([\d.]+)\s*([a-zA-Z]+)?$/);
+
   if (!match) return 0;
 
   const number = parseFloat(match[1]);
@@ -328,6 +338,7 @@ function parseNumber(input) {
 
   return number * (suffixes[suffix.toLowerCase()] || 1);
 }
+
 function parseChance(chanceText) {
 
   return parseNumber(
@@ -341,20 +352,54 @@ function parseChance(chanceText) {
 }
 
 function formatChance(num) {
+
   if (num <= 1) return "1";
 
   for (let i = suffixList.length - 1; i >= 0; i--) {
+
     const suffix = suffixList[i];
     const value = Math.pow(1000, i + 1);
 
     if (num >= value) {
-      return (num / value).toFixed(2).replace(/\.00$/, "") + suffix;
+
+      return (
+        (num / value)
+          .toFixed(2)
+          .replace(/\.00$/, "") + suffix
+      );
+
     }
   }
 
   return Math.floor(num).toString();
 }
-  return Math.floor(num).toString();
+
+function updateChance(input, baseChanceText) {
+
+  const luck = parseNumber(input.value);
+
+  const result =
+    input.parentElement.querySelector(".luck-result");
+
+  if (!luck || luck <= 0) {
+
+    result.textContent = "1 in ???";
+    return;
+
+  }
+
+  const baseChance =
+    parseChance(baseChanceText);
+
+  let finalChance =
+    baseChance / luck;
+
+  if (finalChance < 1) {
+    finalChance = 1;
+  }
+
+  result.textContent =
+    "1 in " + formatChance(finalChance);
 }
 
 function updateChance(input, baseChanceText) {
