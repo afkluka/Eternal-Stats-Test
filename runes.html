@@ -302,48 +302,23 @@ function getStatClass(stat) {
 function closeRune() {
   document.getElementById("popup").style.display = "none";
 }
-  const suffixes = {
-  k: 1e3,
-  M: 1e6,
-  B: 1e9,
-  T: 1e12,
-  Qd: 1e15,
-  Qn: 1e18,
-  Sx: 1e21,
-  Sp: 1e24,
-  Oc: 1e27,
-  No: 1e30,
-  De: 1e33,
-  Ude: 1e36,
-  DDe: 1e39,
-  TDe: 1e42,
-  QdDe: 1e45,
-  QnDe: 1e48,
-  SxDe: 1e51,
-  SpDe: 1e54,
-  OcDe: 1e57,
-  NoDe: 1e60,
-  Vt: 1e63,
-  UVt: 1e66,
-  DVt: 1e69,
-  TVt: 1e72,
-  QdVt: 1e75,
-  QnVt: 1e78,
-  SxVt: 1e81,
-  SpVt: 1e84,
-  OcVt: 1e87,
-  NoVt: 1e90,
-  Tg: 1e93,
-  Utg: 1e96
-};
+  const suffixList = [
+  "k", "M", "B", "T", "Qd", "Qn", "Sx", "Sp", "Oc", "No",
+  "De", "Ude", "DDe", "TDe", "QdDe", "QnDe", "SxDe", "SpDe", "OcDe", "NoDe",
+  "Vt", "UVt", "DVt", "TVt", "QdVt", "QnVt", "SxVt", "SpVt", "OcVt", "NoVt",
+  "Tg", "Utg"
+];
+
+const suffixes = {};
+
+suffixList.forEach((suffix, index) => {
+  suffixes[suffix.toLowerCase()] = Math.pow(1000, index + 1);
+});
 
 function parseNumber(input) {
-
   input = input.trim();
 
-  const match =
-    input.match(/^([\d.]+)\s*([a-zA-Z]+)?$/);
-
+  const match = input.match(/^([\d.]+)\s*([a-zA-Z]+)?$/);
   if (!match) return 0;
 
   const number = parseFloat(match[1]);
@@ -351,9 +326,8 @@ function parseNumber(input) {
 
   if (!suffix) return number;
 
-  return number * (suffixes[suffix] || 1);
+  return number * (suffixes[suffix.toLowerCase()] || 1);
 }
-
 function parseChance(chanceText) {
 
   return parseNumber(
@@ -367,25 +341,19 @@ function parseChance(chanceText) {
 }
 
 function formatChance(num) {
-
   if (num <= 1) return "1";
 
-  const entries =
-    Object.entries(suffixes).reverse();
-
-  for (const [suffix, value] of entries) {
+  for (let i = suffixList.length - 1; i >= 0; i--) {
+    const suffix = suffixList[i];
+    const value = Math.pow(1000, i + 1);
 
     if (num >= value) {
-
-      return (
-        (num / value)
-          .toFixed(2)
-          .replace(/\.00$/, "") + suffix
-      );
-
+      return (num / value).toFixed(2).replace(/\.00$/, "") + suffix;
     }
   }
 
+  return Math.floor(num).toString();
+}
   return Math.floor(num).toString();
 }
 
