@@ -536,3 +536,7 @@ footer {
     0 -2px #000,
     0 2px #000;
 }
+
+.luck-calc {
+  display: none !important;
+}
